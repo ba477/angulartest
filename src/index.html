@@ -1,0 +1,108 @@
+<!doctype html>
+<html  lang="fr" ng-app="copelican">
+  <head>
+    <meta charset="utf-8">
+    <title>copelican</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/css/styles.css"><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+  <header>
+    <div class="row">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="center">
+            <img src="assets/images/copelican-logo.png" alt="copelican">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="navbar">
+            <ul class="nav navbar-nav" ng-controller="NavCtrl">
+              <li ng-class="navClass('home')"><a href='#/home'>Expéditeur</a></li>
+              <li ng-class="navClass('home')"><a href='#/home'>Voyageur</a></li>
+              <li ng-class="navClass('home')"><a href='#/home'>Notre concept</a></li>
+              <li ng-class="navClass('home')"><a href='#/home'>Contact</a></li>
+            </ul>
+          </div>
+          <ul class="more">
+            <li class="perso">
+              <a href=""><img src="assets/images/perso.jpg" alt=""></a>
+            </li>
+            <li class="fb">
+              <a href=""><img src="assets/images/fb.jpg" alt=""></a>
+
+            </li>
+            <li class="twi">
+              <a href=""><img src="assets/images/tzi.jpg" alt=""></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-5">
+        <form name="myForm" ng-submit="foo()" novalidate>
+          <label>Prénom : </label>
+          <input name="prenom" type="text" required ng-minlength="2" ng-maxlength="20" />
+          <div ng-messages="myForm.prenom.$error" ng-messages-include="erreurs.html">
+            <div ng-message="required">Votre prénom est requis</div>
+          </div>
+
+          <label>Nom : </label>
+          <input name="nom" type="text" ng-maxlength="30" />
+          <div ng-messages="myForm.nom.$error" ng-messages-include="erreurs.html"></div>
+
+          <label>E-mail : </label>
+          <input name="mail" type="email" required />
+          <div ng-messages="myForm.mail.$error" ng-messages-include="erreurs.html"></div>
+
+          <label>Âge : </label>
+          <input name="age" type="number" required />
+          <div ng-messages="myForm.age.$error" ng-messages-include="erreurs.html"></div>
+
+          <input type="submit" value="Envoyer" />
+        </form>
+      </div>
+      <div class="col-md-7"></div>
+    </div>
+  </div>
+    <div ng-view></div>
+
+
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>
